@@ -41,6 +41,14 @@ public class MemoService {
     }
 
     /**
+     * IDと一致するメモの最初の一件のみを取得して返却
+     */
+    public Note findFirstNote(int id) {
+        List<Note> noteList = findNoteById(id);
+        return noteList.get(0);
+    }
+
+    /**
      * 新規メモ作成
      *
      * @param title タイトル

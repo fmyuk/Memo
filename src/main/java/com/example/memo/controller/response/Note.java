@@ -2,6 +2,7 @@ package com.example.memo.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.Map;
@@ -11,26 +12,27 @@ import java.util.Map;
  */
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Note {
     /**
      * ID
      */
-    public int id;
+    private int id;
 
     /**
      * タイトル
      */
-    public String title;
+    private String title;
 
     /**
      * ボディ
      */
-    public String body;
+    private String body;
 
     /**
      * 日付
      */
-    public Date date;
+    private Date date;
 
     /**
      * Noteクラスのof

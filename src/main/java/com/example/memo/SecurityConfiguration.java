@@ -26,15 +26,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/suppl01/secret/**").authenticated()
-                .antMatchers("/suppl01/admin/**").hasRole("ADMIN")
+                .antMatchers("/log/secret/**").authenticated()
+                .antMatchers("/log/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
         // ログイン
-        http.formLogin().loginPage("/suppl01/login").usernameParameter("username").passwordParameter("password")
-                .loginProcessingUrl("/suppl01/loginProcess").defaultSuccessUrl("/suppl01/secret/").failureUrl("/suppl01/login?error");
+        http.formLogin().loginPage("/log/login").usernameParameter("username").passwordParameter("password")
+                .loginProcessingUrl("/log/loginProcess").defaultSuccessUrl("/log/secret/").failureUrl("/log/login?error");
 
         // ログアウト
-        http.logout().logoutUrl("/suppl01/logout").logoutSuccessUrl("/suppl01/");
+        http.logout().logoutUrl("/log/logout").logoutSuccessUrl("/log/");
     }
 }

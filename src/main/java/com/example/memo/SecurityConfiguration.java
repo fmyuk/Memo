@@ -26,9 +26,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/suppl01/secret/**").authenticated() // 「/suppl01/secret/**」は認証が必要（ロールは問わず）
-                .antMatchers("/suppl01/admin/**").hasRole("ADMIN") // 「/suppl01/admin/**」は管理者ロールが必要
-                .anyRequest().permitAll();                         // それ以外は認証が不要
+                .antMatchers("/suppl01/secret/**").authenticated()
+                .antMatchers("/suppl01/admin/**").hasRole("ADMIN")
+                .anyRequest().permitAll();
 
         // ログイン
         http.formLogin().loginPage("/suppl01/login").usernameParameter("username").passwordParameter("password")

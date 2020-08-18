@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,5 +49,14 @@ public class Note {
                 (String) data.get("body"),
                 (Date) data.get("date")
         );
+    }
+
+    /**
+     * bodyフィールドをStringのListとして返却
+     *
+     * @return List<String>
+     */
+    public List<String> getBodyAsList() {
+        return Arrays.asList(body.split("\n"));
     }
 }

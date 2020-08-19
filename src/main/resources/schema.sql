@@ -1,5 +1,5 @@
 create table IF NOT EXISTS note (
-    id INT AUTO_INCREMENT primary key
+    id INT AUTO_INCREMENT primary key,
     title TEXT,
     body TEXT,
     date TIMESTAMP

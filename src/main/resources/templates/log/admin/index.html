@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Secret</title>
+</head>
+<body>
+<h1>Login</h1>
+<h2>Admin</h2>
+<p>
+    このページは管理者が閲覧可能なページです。
+</p>
+<ul>
+    <li><a href="add_user">ユーザー追加</a></li>
+</ul>
+<form th:action="@{/log/logout}" method="post">
+    <button type="submit">ログアウト</button>
+</form>
+</body>
+</html>

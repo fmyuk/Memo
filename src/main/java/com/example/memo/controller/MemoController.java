@@ -55,7 +55,7 @@ public class MemoController {
      */
     @GetMapping("/edit")
     public String updateGet(@RequestParam("id") int id, Model model) {
-        List<Note> note = memoService.findNoteById(id);
+        Note note = memoService.findFirstNote(id);
         model.addAttribute("note", note);
         return "memo/edit";
     }

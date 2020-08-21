@@ -11,10 +11,9 @@
         <dl>ID</dl>
         <dd><span th:text="${note.id}">ID</span><input type="hidden" name="id" th:value="${note.id}"/></dd>
         <dt>タイトル</dt>
-        <dd><input name="text" style="width: 500px"/></dd>
+        <dd><input name="title" th:value="${note.title}" style="width: 500px"/></dd>
         <dt>本文</dt>
-        <dd><textarea name="body" style="width: 500px; height: 300px"></textarea>
-        </dd>
+        <dd><textarea name="body" th:text="${note.body}" style="width: 500px; height: 300px">本文</textarea></dd>
     </dl>
     <button type="submit">保存</button>
 </form>

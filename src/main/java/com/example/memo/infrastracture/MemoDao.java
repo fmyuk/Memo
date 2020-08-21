@@ -14,14 +14,14 @@ public interface MemoDao {
      *
      * @return List
      */
-    public List<Map<String, Object>> selectList();
+    List<Map<String, Object>> selectList();
 
     /**
      * IDと一致するメモ取得
      *
      * @return List
      */
-    public List<Map<String, Object>> selectById(int id);
+    List<Map<String, Object>> selectById(int id);
 
     /**
      * 新規メモ作成
@@ -31,7 +31,7 @@ public interface MemoDao {
      * @param date  日付
      * @return int
      */
-    public int insert(String title, String body, Date date);
+    int insert(String title, String body, Date date);
 
     /**
      * メモ編集
@@ -42,7 +42,7 @@ public interface MemoDao {
      * @param id    ID
      * @return int
      */
-    public int update(String title, String body, Date date, int id);
+    int update(String title, String body, Date date, int id);
 
     /**
      * メモ削除
@@ -50,5 +50,5 @@ public interface MemoDao {
      * @param id ID
      * @return int
      */
-    public int delete(int id);
+    int delete(int id);
 }

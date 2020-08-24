@@ -8,7 +8,7 @@ create table IF NOT EXISTS note (
 create table IF NOT EXISTS users (
     username varchar_ignorecase(50) not null primary key,
     password varchar_ignorecase(100) not null,
-    enable boolean not null
+    enabled boolean not null
 );
 
 create table IF NOT EXISTS authorities (

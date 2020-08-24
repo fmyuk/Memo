@@ -15,8 +15,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth, JdbcTemplate jdbcTemplate) throws Exception {
         // アカウントの設定（パスコード）
-        auth.inMemoryAuthentication().withUser("admin").password("adminpassword").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("user1").password("user1password").roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password("{noop}adminpassword").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user1").password("{noop}user1password").roles("USER");
         // アカウントの設定（データベース）、利用するパスワードエンコーダの設定
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         auth.jdbcAuthentication().dataSource(jdbcTemplate.getDataSource()).passwordEncoder(passwordEncoder);
@@ -28,7 +28,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/log/secret/**").authenticated()
                 .antMatchers("/log/admin/**").hasRole("ADMIN")
+                .antMatchers("/").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().permitAll();
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
 
         // ログイン
         http.formLogin().loginPage("/log/login").usernameParameter("username").passwordParameter("password")
